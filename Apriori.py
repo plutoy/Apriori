@@ -26,10 +26,10 @@ def find_frequent_itemsets(favorable_reviews_by_users, k_1_itemsets, min_support
     return dict([(itemset, frequency/ct) for itemset, frequency in counts.items() if frequency/ct >= min_support])
     
 import sys
-frequent_itemsets = {}  # itemsets are sorted by length
+frequent_itemsets = {}  
 min_support = 2
 
-# k=1 candidates are the isbns with more than min_support favourable reviews
+
 frequent_itemsets[1] = samples
 
 print("There are {} movies with more than {} favorable reviews".format(len(frequent_itemsets[1]), min_support))
@@ -66,7 +66,7 @@ for itemset_length, itemset_counts in frequent_itemsets.items():
 print("There are {} candidate rules".format(len(candidate_rules)))
 print(candidate_rules)
 
-# Now, we compute the confidence of each of these rules. This is very similar to what we did in chapter 1
+
 correct_counts = defaultdict(int)
 incorrect_counts = defaultdict(int)
 for user, reviews in river_sp.items():
